@@ -1,0 +1,16 @@
+MSPATENTLICENSE
+LICENSE
+Changes
+MANIFEST
+Makefile.PL
+README
+Visio.pm
+Visio/Layout.pm
+Visio/Line.pm
+Visio/Master.pm
+Visio/Page.pm
+Visio/PageProps.pm
+Visio/PageSheet.pm
+Visio/Shape.pm
+t/1.t
+META.yml                                 Module meta-data (added by MakeMaker)

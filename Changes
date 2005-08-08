@@ -1,0 +1,6 @@
+Revision history for Perl extension visio.
+
+0.01  Mon Jan 31 23:23:44 2005
+	- original version; created by h2xs 1.22 with options
+		-AXc -n visio
+
