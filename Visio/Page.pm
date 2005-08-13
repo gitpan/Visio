@@ -53,7 +53,7 @@ use Visio::PageSheet;
 use Visio::Shape;
 
 
-$VERSION = sprintf "%d.%03d", q$Revision: 1.7 $ =~ /: (\d+)\.(\d+)/;
+$VERSION = sprintf "%d.%03d", q$Revision: 1.8 $ =~ /: (\d+)\.(\d+)/;
 
 my $log = get_logger('visio.page');
 
@@ -149,63 +149,13 @@ sub create_connect {
 
 1;
 __END__
-# Below is stub documentation for your module. You'd better edit it!
 
 =head1 NAME
 
-visio - Perl extension for blah blah blah
+Visio::Page - Perl extension for visio shapes
 
 =head1 SYNOPSIS
 
-  use visio;
-  blah blah blah
-
-=head1 ABSTRACT
-
-  This should be the abstract for visio.
-  The abstract is used when making PPD (Perl Package Description) files.
-  If you don't want an ABSTRACT you should also edit Makefile.PL to
-  remove the ABSTRACT_FROM option.
-
-=head1 DESCRIPTION
-
-Stub documentation for visio, created by h2xs. It looks like the
-author of the extension was negligent enough to leave the stub
-unedited.
-
-Blah blah blah.
-
-=head2 EXPORT
-
-None by default.
-
-
-
-=head1 SEE ALSO
-
-Mention other useful documentation such as the documentation of
-related modules or operating system documentation (such as man pages
-in UNIX), or any relevant external documentation such as RFCs or
-standards.
-
-If you have a mailing list set up for your module, mention it here.
-
-If you have a web site set up for your module, mention it here.
-
-=head1 AUTHOR
-
-Aamer Akhter, E<lt>aakhter@localdomainE<gt>
-
-=head1 COPYRIGHT AND LICENSE
-
-Copyright 2005 by Aamer Akhter
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as in LICENSE and MSPATENTLICENSE files.
-
-
- "This product may incorporate intellectual property owned by 
- Microsoft Corporation. The terms and conditions upon which Microsoft 
- is licensing such intellectual property may be found at 
+ to be used with Visio module
 
 =cut

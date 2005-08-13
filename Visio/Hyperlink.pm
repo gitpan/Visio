@@ -1,4 +1,4 @@
-package Visio::PageSheet;
+package Visio::Hyperlink;
 
 
 #PLEASE SEE MSPATENTLICENSE
@@ -6,7 +6,6 @@ package Visio::PageSheet;
 # Microsoft Corporation. The terms and conditions upon which Microsoft 
 # is licensing such intellectual property may be found at 
 # http://msdn.microsoft.com/library/en-us/odcXMLRef/html/odcXMLRefLegalNotice.asp"
-
 
 # Copyright 2005 Aamer Akhter. All rights reserved.
 
@@ -42,6 +41,7 @@ package Visio::PageSheet;
 
 
 
+
 use 5.008;
 use strict;
 use warnings;
@@ -52,51 +52,58 @@ use Data::Dumper;
 use vars qw($VERSION);
 
 
-use Visio::PageProps;
-
 $VERSION = sprintf "%d.%03d", q$Revision: 1.5 $ =~ /: (\d+)\.(\d+)/;
 
-my $log = get_logger('visio.pagesheet');
+my $log = get_logger('visio.hyperlink');
 
 # Preloaded methods go here.
 
 sub new {
     my $class = shift;
     my $parentN = shift;
+    my $id = shift;
     my $self = {};
     $self->{parentN} = $parentN;
     $self->{xmldoc} = $parentN->ownerDocument;
     $self->{xmlroot} = $self->{xmldoc}->documentElement;
+    $self->{myid} = $id;
     bless($self,$class);
-    my $psNL = $self->{parentN}->findnodes('PageSheet');
-    if ($psNL->size() > 0) {
-	$self->{psNode} = $psNL->pop();
-	$log->debug("visio pagesheet object already exists");
-    } else {
-	$self->{psNode} = $self->{xmldoc}->createElement('PageSheet');
-	$self->{parentN}->appendChild($self->{psNode});
-	#lets create the page
-	$log->debug("visio pagesheet object created");
-    }
+   $self->{myNode} = $self->{xmldoc}->createElement('Hyperlink');
+    $self->{parentN}->appendChild($self->{myNode});
+    $log->debug("visio hyperlink object created");
+    $self->set_id();
     return $self;
 }
 
-sub get_node {
+sub set_id {
     my $self = shift;
-    return $self->{psNode};
+    $self->{myNode}->setAttribute('ID',$self->{myid});
 }
 
-sub create_pageProps {
-    #if pagePropsdoesn't exist, create it;
+sub get_id {
     my $self = shift;
-    if (defined $self->{pageProps}) {
-	return $self->{pageProps};
-    } else {
-	$self->{pageProps} =
-	    new Visio::PageProps($self->{psNode});
-	return $self->{pageProps};
-    }
+    return $self->{myid};
 }
+
+
+sub get_node {
+    my $self = shift;
+    return $self->{myNode};
+}
+
+sub set_property {
+    my $self = shift;
+    my $property = shift;
+    my $value = shift;
+    my $format = shift;
+    my $node = Visio::generic_create_node($self->{myNode},
+					  $property,
+					  );
+    Visio::generic_settext($node,$value);
+    $self->{property}{$property}=$property;
+    return $node;
+}
+
 
 1;
 __END__
@@ -104,10 +111,22 @@ __END__
 
 =head1 NAME
 
-Visio::PageSheet - Perl extension for manipulation of Viso page sheets
+Visio::Hyperlink - Perl extension for manipulation of Visio hyperlinks
 
 =head1 SYNOPSIS
 
  to be used by Visio module
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2005 by Aamer Akhter
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as in LICENSE and MSPATENTLICENSE files.
+
+ "This product may incorporate intellectual property owned by 
+ Microsoft Corporation. The terms and conditions upon which Microsoft 
+ is licensing such intellectual property may be found at 
+ http://msdn.microsoft.com/library/en-us/odcXMLRef/html/odcXMLRefLegalNotice.asp"
 
 =cut

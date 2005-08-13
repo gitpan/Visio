@@ -55,7 +55,7 @@ use vars qw($VERSION);
 use Visio::Page;
 use Visio::Master;
 
-$VERSION = sprintf "%d.%03d", q$Revision: 1.8 $ =~ /: (\d+)\.(\d+)/;
+$VERSION = sprintf "%d.%03d", q$Revision: 1.9 $ =~ /: (\d+)\.(\d+)/;
 
 Log::Log4perl->init_once(\ qq{
  log4perl.logger                                 = DEBUG, Screen
@@ -337,20 +337,26 @@ To create a viso vdx file, create multiple pages, reorient one of the pages:
 
 =head1 ABSTRACT
 
-  This should be the abstract for visio.
-  The abstract is used when making PPD (Perl Package Description) files.
-  If you don't want an ABSTRACT you should also edit Makefile.PL to
-  remove the ABSTRACT_FROM option.
+  Visio is an alpha stage library to create and manipulate Microsoft Visio
+  drawings.
 
 =head1 DESCRIPTION
 
-Stub documentation for visio, created by h2xs. It looks like the
-author of the extension was negligent enough to leave the stub
-unedited.
+  Visio is an alpha stage library to create and manipulate Microsoft Visio
+  drawings.
 
-Blah blah blah.
+  Currently it can only create drawings from scratch, and can not
+  create a usable object model from a pre-existing file.
 
+  The Visio module is however able to extract stencils from pre-existing
+  files and insert them into your new drawings. This is helpfull as 
+  it is fairly difficult to make a nice drawing on your own via the 
+  current Visio perl module API.
 
+  This is my first public Perl module, and I'm sure there are tons of 
+  mistakes. Please feel free to communicate any design flaws or reworking
+  you may feel would make Visio more usable and approachable.
+  
 =head1 Document Methods
 
 =head2 new()
