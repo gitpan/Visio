@@ -1,6 +1,5 @@
 MSPATENTLICENSE
 LICENSE
-Changes
 ChangeLog
 MANIFEST
 Makefile.PL
@@ -14,5 +13,7 @@ Visio/PageProps.pm
 Visio/PageSheet.pm
 Visio/Shape.pm
 Visio/Hyperlink.pm
+sample/golden.vsx
+sample/sample.pl
 t/1.t
 META.yml                                 Module meta-data (added by MakeMaker)

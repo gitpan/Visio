@@ -9,7 +9,8 @@ WriteMakefile(
 	      'PREREQ_PM'		=> {
 		  XML::LibXML=>0,
 		    Carp=>0,
-		    Data::Dumper=>0
+		    Data::Dumper=>0,
+		    'Log::Log4perl' => 0
 		},
 	      PM => {
 		  'Visio.pm' => '$(INST_LIBDIR)/Visio.pm',

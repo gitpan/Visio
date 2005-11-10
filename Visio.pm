@@ -55,7 +55,7 @@ use vars qw($VERSION);
 use Visio::Page;
 use Visio::Master;
 
-$VERSION = sprintf "%d.%03d", q$Revision: 1.9 $ =~ /: (\d+)\.(\d+)/;
+$VERSION = sprintf "%d.%03d", q$Revision: 1.10 $ =~ /: (\d+)\.(\d+)/;
 
 Log::Log4perl->init_once(\ qq{
  log4perl.logger                                 = DEBUG, Screen
@@ -540,7 +540,6 @@ None by default.
 
 =head1 SEE ALSO
 
-http://perlvisio.ecsforge.cisco.com
 
 If you have a mailing list set up for your module, mention it here.
 
